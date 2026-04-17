@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nini's Nummies — Private Chef · Organic · Home-Cooked</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=Caveat:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f0dfc0;
+    --cream-deep: #e5cfa5;
+    --honey: #e8c590;
+    --ink: #3a2418;
+    --ink-soft: #5a3d2e;
+    --terracotta: #b84a2a;
+    --terracotta-deep: #8a2f15;
+    --sage: #8a7040;
+    --sage-deep: #6b5028;
+    --mustard: #d89838;
+    --rose: #d17055;
+    --paper: #f4e4c8;
+    --warm-bg: #e8d0a8;
+    --deep-warm: #c99962;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse at 15% 5%, rgba(184, 74, 42, 0.18), transparent 45%),
+      radial-gradient(ellipse at 85% 85%, rgba(216, 152, 56, 0.2), transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(209, 112, 85, 0.08), transparent 60%);
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  .script {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    color: var(--terracotta);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.4rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(240, 223, 192, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(58, 36, 24, 0.12);
+  }
+  nav .logo {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+  nav .logo span { color: var(--terracotta); }
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+  }
+  nav ul a {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s;
+  }
+  nav ul a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--terracotta);
+    transition: width 0.3s;
+  }
+  nav ul a:hover { color: var(--terracotta); }
+  nav ul a:hover::after { width: 100%; }
+  nav .book-btn {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.7rem 1.4rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  nav .book-btn:hover {
+    background: var(--terracotta);
+    transform: translateY(-1px);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    padding: 9rem 3rem 4rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-text .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+  .hero-text .eyebrow::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--terracotta);
+  }
+
+  .hero-text h1 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    margin-bottom: 2rem;
+  }
+  .hero-text h1 .accent {
+    font-style: italic;
+    color: var(--terracotta);
+    font-weight: 300;
+  }
+  .hero-text h1 .hand {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    color: var(--sage-deep);
+    font-size: 0.9em;
+    display: inline-block;
+    transform: rotate(-3deg);
+  }
+
+  .hero-text p.lede {
+    font-size: 1.15rem;
+    max-width: 520px;
+    color: var(--ink-soft);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--terracotta);
+    color: var(--paper);
+  }
+  .btn-primary:hover {
+    background: var(--terracotta-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(192, 90, 62, 0.3);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .btn .arrow { transition: transform 0.3s; }
+  .btn:hover .arrow { transform: translateX(4px); }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 3/4;
+    max-height: 75vh;
+  }
+  .hero-plate {
+    position: absolute;
+    inset: 0;
+    border-radius: 50% 50% 45% 55% / 48% 52% 48% 52%;
+    background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80');
+    background-size: cover;
+    background-position: center;
+    box-shadow:
+      0 30px 80px rgba(42, 35, 32, 0.25),
+      inset 0 0 60px rgba(42, 35, 32, 0.15);
+    transition: transform 1.2s ease;
+  }
+  .hero-plate:hover { transform: scale(1.02); }
+
+  .hero-tag {
+    position: absolute;
+    background: var(--paper);
+    padding: 0.8rem 1.2rem;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(42, 35, 32, 0.12);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(42, 35, 32, 0.06);
+  }
+  .hero-tag .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+  .tag-1 { top: 12%; right: -8%; transform: rotate(4deg); }
+  .tag-2 { bottom: 22%; left: -12%; transform: rotate(-3deg); }
+  .tag-3 { bottom: 5%; right: 5%; transform: rotate(2deg); background: var(--sage-deep); color: var(--paper); }
+  .tag-3 .dot { background: var(--mustard); }
+
+  /* Decorative hero squiggle */
+  .hero-squiggle {
+    position: absolute;
+    bottom: 2rem; left: 3rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 1.3rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid rgba(246, 239, 226, 0.1);
+    border-bottom: 1px solid rgba(246, 239, 226, 0.1);
+  }
+  .marquee-track {
+    display: inline-flex;
+    animation: marquee 40s linear infinite;
+    gap: 3rem;
+    padding-left: 3rem;
+  }
+  .marquee-item {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+  .marquee-item::after {
+    content: '✦';
+    color: var(--terracotta);
+  }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 7rem 3rem; position: relative; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+  .section-label::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--terracotta);
+  }
+
+  .section-title {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ---------- ABOUT ---------- */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    background: var(--honey);
+    background-image:
+      radial-gradient(ellipse at 20% 30%, rgba(184, 74, 42, 0.15), transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(216, 152, 56, 0.25), transparent 50%);
+  }
+  .about-img {
+    aspect-ratio: 4/5;
+    border-radius: 4px;
+    background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(42, 35, 32, 0.2);
+  }
+  .about-img::after {
+    content: '"A meal is a love letter you can taste."';
+    position: absolute;
+    bottom: -2rem; right: -1rem;
+    background: var(--paper);
+    padding: 1.2rem 1.8rem;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    max-width: 260px;
+    box-shadow: 0 10px 30px rgba(42, 35, 32, 0.1);
+    border-left: 3px solid var(--terracotta);
+  }
+  .about-text p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    max-width: 520px;
+  }
+  .about-text .signature {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    color: var(--terracotta);
+    margin-top: 2rem;
+    display: block;
+  }
+  .about-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(42, 35, 32, 0.1);
+  }
+  .about-stats div {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-stats strong {
+    font-family: 'Fraunces', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--terracotta);
+  }
+  .about-stats span {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- SERVICES ---------- */
+  #services {
+    background: var(--deep-warm);
+    background-image:
+      radial-gradient(ellipse at 10% 10%, rgba(184, 74, 42, 0.3), transparent 55%),
+      radial-gradient(ellipse at 90% 90%, rgba(138, 47, 21, 0.25), transparent 60%),
+      linear-gradient(180deg, #c99962 0%, #b8864d 100%);
+  }
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: end;
+  }
+  .services-header p {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--paper);
+    padding: 2.5rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(42, 35, 32, 0.06);
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -50%;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, var(--terracotta), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(42, 35, 32, 0.12);
+  }
+  .service-card:hover::before { opacity: 0.08; }
+  .service-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .service-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .service-card p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin-bottom: 1.5rem;
+  }
+  .service-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px dashed rgba(42, 35, 32, 0.15);
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+  .service-meta strong {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink);
+    font-size: 1.1rem;
+  }
+  .service-card.featured {
+    background: var(--ink);
+    color: var(--cream);
+    grid-column: span 2;
+    min-height: auto;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .service-card.featured h3 { color: var(--cream); font-size: 2.4rem; }
+  .service-card.featured p { color: rgba(246, 239, 226, 0.75); }
+  .service-card.featured .service-num { color: var(--mustard); }
+  .service-card.featured .service-meta {
+    border-color: rgba(246, 239, 226, 0.2);
+    color: rgba(246, 239, 226, 0.7);
+  }
+  .service-card.featured .service-meta strong { color: var(--mustard); }
+
+  /* ---------- RECIPES ---------- */
+  #recipes {
+    background: var(--cream-deep);
+    background-image:
+      radial-gradient(ellipse at 85% 15%, rgba(216, 152, 56, 0.3), transparent 50%),
+      radial-gradient(ellipse at 15% 85%, rgba(184, 74, 42, 0.15), transparent 55%);
+  }
+  .recipes-intro {
+    max-width: 700px;
+    margin-bottom: 4rem;
+  }
+  .recipes-intro p {
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+  .recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .recipe-card {
+    background: var(--paper);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.4s;
+    cursor: pointer;
+    border: 1px solid rgba(58, 36, 24, 0.1);
+  }
+  .recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(42, 35, 32, 0.12);
+  }
+  .recipe-img {
+    aspect-ratio: 4/3;
+    position: relative;
+    overflow: hidden;
+  }
+  .recipe-img-1 {
+    background-image: url('https://images.unsplash.com/photo-1516100882582-96c3a05fe590?auto=format&fit=crop&w=700&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  .recipe-img-2 {
+    background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  .recipe-img-3 {
+    background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=700&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  .recipe-img-4 {
+    background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  .recipe-img-5 {
+    background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  .recipe-img-6 {
+    background-image: url('https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=700&q=80');
+    background-size: cover;
+    background-position: center;
+  }
+  .recipe-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(0,0,0,0.15) 100%);
+  }
+  .recipe-badge {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    background: var(--paper);
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 1;
+    font-weight: 500;
+  }
+  .recipe-content {
+    padding: 1.8rem;
+  }
+  .recipe-meta {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .recipe-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .recipe-card p {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin-bottom: 1.2rem;
+  }
+  .recipe-link {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Recipe modal */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(42, 35, 32, 0.6);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .modal-overlay.active { display: flex; opacity: 1; }
+  .modal {
+    background: var(--paper);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    padding: 3rem;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s;
+  }
+  .modal-overlay.active .modal { transform: scale(1); }
+  .modal-close {
+    position: absolute;
+    top: 1.2rem; right: 1.2rem;
+    background: var(--ink);
+    color: var(--cream);
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+  .modal h2 {
+    font-size: 2.5rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+  .modal .recipe-meta {
+    margin-bottom: 1.5rem;
+  }
+  .modal p.desc {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(42, 35, 32, 0.1);
+  }
+  .modal h4 {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+  .modal h4:first-of-type { margin-top: 0; }
+  .modal ul, .modal ol {
+    padding-left: 1.2rem;
+    color: var(--ink-soft);
+  }
+  .modal li {
+    margin-bottom: 0.5rem;
+    padding-left: 0.3rem;
+  }
+  .modal ol li { padding-left: 0.5rem; }
+
+  /* ---------- BOOK ---------- */
+  #book {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 7rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #book::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--terracotta), transparent 70%);
+    opacity: 0.2;
+    filter: blur(40px);
+  }
+  #book::after {
+    content: '';
+    position: absolute;
+    bottom: -300px; left: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, var(--sage), transparent 70%);
+    opacity: 0.15;
+    filter: blur(50px);
+  }
+  .book-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    position: relative;
+    z-index: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  .book-info h2 {
+    color: var(--cream);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    margin-bottom: 2rem;
+  }
+  .book-info h2 em {
+    color: var(--mustard);
+    font-weight: 300;
+  }
+  .book-info p {
+    color: rgba(246, 239, 226, 0.75);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+  .book-info .section-label { color: var(--mustard); }
+  .book-info .section-label::before { background: var(--mustard); }
+  .book-features {
+    list-style: none;
+    margin-top: 2rem;
+  }
+  .book-features li {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(246, 239, 226, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(246, 239, 226, 0.9);
+  }
+  .book-features li::before {
+    content: '✦';
+    color: var(--mustard);
+    font-size: 0.9rem;
+  }
+  .book-form {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+  }
+  .book-form h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+  .book-form > p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(42, 35, 32, 0.15);
+    background: var(--cream);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: all 0.2s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--terracotta);
+    background: var(--paper);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+  }
+  .form-submit {
+    width: 100%;
+    padding: 1.1rem;
+    background: var(--terracotta);
+    color: var(--paper);
+    border: none;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+  }
+  .form-submit:hover {
+    background: var(--terracotta-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(192, 90, 62, 0.4);
+  }
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .form-success.active { display: block; }
+  .form-success .check {
+    width: 60px; height: 60px;
+    background: var(--sage);
+    color: var(--paper);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .form-success h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--ink);
+  }
+  .form-success p {
+    color: var(--ink-soft);
+  }
+
+  /* ---------- CALENDAR ---------- */
+  .calendar {
+    background: var(--cream);
+    border: 1px solid rgba(42, 35, 32, 0.15);
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  .cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cal-month {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink);
+  }
+  .cal-nav {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .cal-nav button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(42, 35, 32, 0.15);
+    background: var(--paper);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--ink);
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    padding: 0;
+  }
+  .cal-nav button:hover:not(:disabled) {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+  .cal-nav button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  .cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: 0.4rem;
+  }
+  .cal-weekdays span {
+    text-align: center;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+    padding: 0.4rem 0;
+  }
+  .cal-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+  }
+  .cal-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.88rem;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--ink);
+    transition: all 0.15s;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    position: relative;
+  }
+  .cal-day:hover:not(.disabled):not(.selected) {
+    background: var(--cream-deep);
+  }
+  .cal-day.disabled {
+    color: rgba(42, 35, 32, 0.25);
+    cursor: not-allowed;
+  }
+  .cal-day.other-month {
+    color: rgba(42, 35, 32, 0.2);
+    cursor: default;
+    pointer-events: none;
+  }
+  .cal-day.today {
+    font-weight: 600;
+    color: var(--terracotta);
+  }
+  .cal-day.selected {
+    background: var(--terracotta);
+    color: var(--paper);
+    font-weight: 500;
+  }
+  .cal-day.selected.today {
+    color: var(--paper);
+  }
+
+  .time-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .time-slot {
+    padding: 0.65rem 0.4rem;
+    background: var(--cream);
+    border: 1px solid rgba(42, 35, 32, 0.15);
+    border-radius: 4px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--ink);
+    font-family: inherit;
+    text-align: center;
+  }
+  .time-slot:hover:not(:disabled):not(.selected) {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+  }
+  .time-slot.selected {
+    background: var(--terracotta);
+    color: var(--paper);
+    border-color: var(--terracotta);
+  }
+  .time-slot:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    text-decoration: line-through;
+  }
+
+  .selected-summary {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--cream-deep);
+    border-radius: 4px;
+    font-size: 0.88rem;
+    color: var(--ink);
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .selected-summary.visible { display: flex; }
+  .selected-summary::before {
+    content: '✓';
+    color: var(--sage-deep);
+    font-weight: 600;
+  }
+  .selected-summary em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--terracotta);
+    font-weight: 500;
+  }
+  .no-slots {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+  .slots-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+  .slots-label em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--terracotta);
+    font-size: 1.05em;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--cream);
+    padding: 4rem 3rem 2rem;
+    border-top: 1px solid rgba(42, 35, 32, 0.08);
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(42, 35, 32, 0.1);
+  }
+  .footer-brand h3 {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .footer-brand h3 span { color: var(--terracotta); }
+  .footer-brand p {
+    color: var(--ink-soft);
+    max-width: 320px;
+  }
+  .footer-col h4 {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+  .footer-col a {
+    display: block;
+    padding: 0.4rem 0;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--terracotta); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .footer-bottom .script-sig {
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--terracotta);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { max-height: 50vh; margin: 0 auto; max-width: 400px; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    .services-header { grid-template-columns: 1fr; gap: 2rem; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card.featured { grid-column: span 1; grid-template-columns: 1fr; padding: 2rem; }
+    .recipes-grid { grid-template-columns: 1fr; }
+    .book-wrapper { grid-template-columns: 1fr; gap: 3rem; }
+    .book-form { padding: 2rem; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-tag { display: none; }
+    .about-stats { flex-wrap: wrap; gap: 1.5rem; }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Nini's <span>Nummies</span></a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#recipes">Recipes</a></li>
+    <li><a href="#book">Contact</a></li>
+  </ul>
+  <a href="#book" class="book-btn">Book a Meeting</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Private Chef · Est. with love</div>
+    <h1>
+      Slow food,<br>
+      <span class="accent">served fast</span><br>
+      <span class="hand">in your own kitchen.</span>
+    </h1>
+    <p class="lede">
+      Nini brings farm-market, organic, thoughtfully-crafted meals to your table — whether that's a weeknight family dinner, a Sunday meal-prep marathon, or a candlelit dinner party for twelve.
+    </p>
+    <div class="hero-ctas">
+      <a href="#book" class="btn btn-primary">Book a Discovery Call <span class="arrow">→</span></a>
+      <a href="#recipes" class="btn btn-secondary">Peek at the Recipes</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-plate"></div>
+    <div class="hero-tag tag-1"><span class="dot"></span>Certified Organic</div>
+    <div class="hero-tag tag-2"><span class="dot"></span>Locally Sourced</div>
+    <div class="hero-tag tag-3"><span class="dot"></span>Made with Love</div>
+  </div>
+  <div class="hero-squiggle">↓ scroll to taste</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span class="marquee-item">organic &amp; seasonal</span>
+    <span class="marquee-item">cooked in your kitchen</span>
+    <span class="marquee-item">dietary restrictions welcome</span>
+    <span class="marquee-item">family-style to fine-dining</span>
+    <span class="marquee-item">weekly meal plans</span>
+    <span class="marquee-item">organic &amp; seasonal</span>
+    <span class="marquee-item">cooked in your kitchen</span>
+    <span class="marquee-item">dietary restrictions welcome</span>
+    <span class="marquee-item">family-style to fine-dining</span>
+    <span class="marquee-item">weekly meal plans</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img reveal"></div>
+  <div class="about-text reveal">
+    <div class="section-label">Meet Nini</div>
+    <h2 class="section-title">A cook, a forager, a grandmother's granddaughter.</h2>
+    <p>
+      I grew up watching my grandmother turn three humble ingredients into something worth writing home about. That's still how I cook — with patience, good butter, and whatever the farmers brought in that week.
+    </p>
+    <p>
+      After a decade in restaurant kitchens from Boston to Lisbon, I traded the chaos of service for the warmth of home kitchens. Now I cook for families, couples, and the occasional lucky dinner party. Always organic. Always from scratch. Never complicated for the sake of it.
+    </p>
+    <span class="signature">— Nini</span>
+    <div class="about-stats">
+      <div><strong>12+</strong><span>Years Cooking</span></div>
+      <div><strong>200+</strong><span>Happy Kitchens</span></div>
+      <div><strong>100%</strong><span>Organic Sourcing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div>
+      <div class="section-label">The Menu of Services</div>
+      <h2 class="section-title">However you like to eat, I'll cook around it.</h2>
+    </div>
+    <p>
+      Every package is customized — dietary needs, pantry preferences, kids who hate mushrooms, the whole lot. Pricing below is a starting point; your quote will be tailored after our discovery call.
+    </p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <div>
+        <span class="service-num">01 — Weekly Meal Prep</span>
+        <h3>The Weekday Rescue</h3>
+        <p>Five nights of dinners, prepped and labeled in your fridge each Sunday. Think: braised short ribs, lemony grain bowls, roasted-vegetable tartines. Reheating instructions included.</p>
+      </div>
+      <div class="service-meta">
+        <span>5 dinners · serves 2–4</span>
+        <strong>from $385/wk</strong>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div>
+        <span class="service-num">02 — In-Home Dinners</span>
+        <h3>Supper, Served</h3>
+        <p>I arrive with groceries, cook in your kitchen, plate each course, and leave it spotless. A three-course tasting for two, or a six-course feast for ten. You just pour the wine.</p>
+      </div>
+      <div class="service-meta">
+        <span>2–12 guests · 3–6 courses</span>
+        <strong>from $145/pp</strong>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div>
+        <span class="service-num">03 — Dinner Parties &amp; Events</span>
+        <h3>The Gathering</h3>
+        <p>Birthdays, anniversaries, Sunday brunches, backyard harvest dinners. Fully custom menus with seasonal produce, curated wine pairings on request, and optional service staff.</p>
+      </div>
+      <div class="service-meta">
+        <span>up to 40 guests</span>
+        <strong>custom quote</strong>
+      </div>
+    </div>
+
+    <div class="service-card reveal">
+      <div>
+        <span class="service-num">04 — Private Lessons</span>
+        <h3>Cooking, Together</h3>
+        <p>Learn the techniques I use every day — perfect risotto, proper pan sauces, a loaf of sourdough you'll actually bake again. Hands-on, in your kitchen, at your pace.</p>
+      </div>
+      <div class="service-meta">
+        <span>2–4 hours · 1–4 students</span>
+        <strong>from $225/hr</strong>
+      </div>
+    </div>
+
+    <div class="service-card featured reveal">
+      <div>
+        <span class="service-num">05 — Signature Offering</span>
+        <h3>The Full-Season Subscription</h3>
+        <p>A twelve-week commitment where I become your household chef — weekly menus built around your calendar, dietary goals, and whatever's peaking at the farm. Includes a monthly dinner party at no extra cost.</p>
+      </div>
+      <div class="service-meta">
+        <span>12 weeks · fully managed</span>
+        <strong>from $4,800 / season</strong>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RECIPES -->
+<section id="recipes">
+  <div class="recipes-intro reveal">
+    <div class="section-label">From My Notebook</div>
+    <h2 class="section-title">A few recipes I cook on repeat.</h2>
+    <p>Pulled straight from my stained, dog-eared notebook. These are weeknight-friendly, forgiving, and designed to use whatever your farmers' market has this week. Click any card for the full recipe.</p>
+  </div>
+  <div class="recipes-grid">
+
+    <div class="recipe-card reveal" data-recipe="1">
+      <div class="recipe-img recipe-img-1">
+        <span class="recipe-badge">30 min</span>
+      </div>
+      <div class="recipe-content">
+        <div class="recipe-meta"><span>Dinner</span><span>Serves 4</span></div>
+        <h3>Sun-blushed tomato orzo</h3>
+        <p>A one-pan wonder with burst cherry tomatoes, garlic-confit oil, and torn basil. Ready faster than delivery.</p>
+        <a class="recipe-link">Read the recipe →</a>
+      </div>
+    </div>
+
+    <div class="recipe-card reveal" data-recipe="2">
+      <div class="recipe-img recipe-img-2">
+        <span class="recipe-badge">slow cook</span>
+      </div>
+      <div class="recipe-content">
+        <div class="recipe-meta"><span>Sunday Supper</span><span>Serves 6</span></div>
+        <h3>Red wine–braised short ribs</h3>
+        <p>Fall-off-the-bone tender, simmered with shallots, rosemary, and a whole bottle of something drinkable.</p>
+        <a class="recipe-link">Read the recipe →</a>
+      </div>
+    </div>
+
+    <div class="recipe-card reveal" data-recipe="3">
+      <div class="recipe-img recipe-img-3">
+        <span class="recipe-badge">no bake</span>
+      </div>
+      <div class="recipe-content">
+        <div class="recipe-meta"><span>Dessert</span><span>Serves 8</span></div>
+        <h3>Rose &amp; raspberry panna cotta</h3>
+        <p>Silky, barely-set cream with a whisper of rosewater and a ruby smear of fresh raspberry coulis.</p>
+        <a class="recipe-link">Read the recipe →</a>
+      </div>
+    </div>
+
+    <div class="recipe-card reveal" data-recipe="4">
+      <div class="recipe-img recipe-img-4">
+        <span class="recipe-badge">vegan</span>
+      </div>
+      <div class="recipe-content">
+        <div class="recipe-meta"><span>Lunch</span><span>Serves 2</span></div>
+        <h3>Green goddess grain bowl</h3>
+        <p>Farro, charred broccolini, avocado, and a herbaceous tahini-green-goddess drizzle that I put on everything.</p>
+        <a class="recipe-link">Read the recipe →</a>
+      </div>
+    </div>
+
+    <div class="recipe-card reveal" data-recipe="5">
+      <div class="recipe-img recipe-img-5">
+        <span class="recipe-badge">brunch</span>
+      </div>
+      <div class="recipe-content">
+        <div class="recipe-meta"><span>Brunch</span><span>Serves 4</span></div>
+        <h3>Saffron &amp; leek frittata</h3>
+        <p>Eggs folded with sweet caramelized leeks, a pinch of saffron, and aged Gruyère. Equally good cold at noon.</p>
+        <a class="recipe-link">Read the recipe →</a>
+      </div>
+    </div>
+
+    <div class="recipe-card reveal" data-recipe="6">
+      <div class="recipe-img recipe-img-6">
+        <span class="recipe-badge">weeknight</span>
+      </div>
+      <div class="recipe-content">
+        <div class="recipe-meta"><span>Dinner</span><span>Serves 4</span></div>
+        <h3>Miso-butter roast chicken</h3>
+        <p>Salty, caramelized, and deeply savory — this is the roast chicken that converts non-chicken people.</p>
+        <a class="recipe-link">Read the recipe →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RECIPE MODAL -->
+<div class="modal-overlay" id="recipeModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- BOOK -->
+<section id="book">
+  <div class="book-wrapper">
+    <div class="book-info reveal">
+      <div class="section-label">Let's Talk</div>
+      <h2>Book a free <em>discovery call</em> — let's see if we're a fit.</h2>
+      <p>
+        Twenty minutes, no pressure. Tell me about your kitchen, your family, your dietary world, and what you're hoping to hand off. I'll come back with a tailored proposal within forty-eight hours.
+      </p>
+      <ul class="book-features">
+        <li>20-minute free consultation, in-person or on Zoom</li>
+        <li>Custom menu proposal within 48 hours</li>
+        <li>Serving Greater Boston &amp; the North Shore</li>
+        <li>All dietary needs and allergies accommodated</li>
+      </ul>
+    </div>
+
+    <div class="book-form reveal">
+      <div id="formWrap">
+        <h3>Tell me a little about you</h3>
+        <p>I'll reach out within one business day to schedule.</p>
+        <form onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" required>
+          </div>
+          <div class="form-group">
+            <label>Phone (optional)</label>
+            <input type="tel">
+          </div>
+          <div class="form-group">
+            <label>Service of Interest</label>
+            <select required>
+              <option value="">Pick one...</option>
+              <option>Weekly Meal Prep</option>
+              <option>In-Home Dinners</option>
+              <option>Dinner Party / Event</option>
+              <option>Private Cooking Lessons</option>
+              <option>Full-Season Subscription</option>
+              <option>Not sure yet — let's chat</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Pick a Date &amp; Time</label>
+            <div class="calendar">
+              <div class="cal-header">
+                <div class="cal-month" id="calMonth">—</div>
+                <div class="cal-nav">
+                  <button type="button" id="calPrev" aria-label="Previous month">‹</button>
+                  <button type="button" id="calNext" aria-label="Next month">›</button>
+                </div>
+              </div>
+              <div class="cal-weekdays">
+                <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+              </div>
+              <div class="cal-days" id="calDays"></div>
+              <div class="slots-label" id="slotsLabel">Select a date to see available times</div>
+              <div class="time-slots" id="timeSlots"></div>
+              <div class="selected-summary" id="selectedSummary"></div>
+            </div>
+            <input type="hidden" id="selectedDateTime">
+          </div>
+          <div class="form-group">
+            <label>Tell me about your kitchen</label>
+            <textarea placeholder="Household size, dietary needs, what you're hoping for..."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Request My Discovery Call →</button>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="check">✓</div>
+        <h3>On its way to my inbox!</h3>
+        <p>Thank you — I'll confirm your call for:</p>
+        <p style="font-family:'Fraunces',serif;font-style:italic;font-size:1.25rem;color:var(--terracotta);margin:0.75rem 0;" id="successDateTime"></p>
+        <p>I'll send a calendar invite within one business day. In the meantime, preheat something.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3>Nini's <span>Nummies</span></h3>
+      <p>Private chef services built on organic, seasonal, home-cooked meals. Serving Greater Boston and beyond.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Weekly Meal Prep</a>
+      <a href="#services">In-Home Dinners</a>
+      <a href="#services">Dinner Parties</a>
+      <a href="#services">Cooking Lessons</a>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#about">About Nini</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#book">Book a Call</a>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <a href="mailto:hello@ninisnummies.com">hello@ninisnummies.com</a>
+      <a href="tel:+16175550100">(617) 555-0100</a>
+      <a href="#">Instagram · @ninisnummies</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Nini's Nummies · All rights reserved</div>
+    <div class="script-sig">made with love &amp; a little butter</div>
+  </div>
+</footer>
+
+<script>
+  // Recipe data
+  const recipes = {
+    1: {
+      title: "Sun-blushed Tomato Orzo",
+      meta: "Dinner · 30 min · Serves 4",
+      desc: "My go-to when the tomatoes are sweet and time is short. The orzo soaks up all the garlicky tomato-confit oil and turns into something between a risotto and a pasta. Finish with fat flakes of salt.",
+      ingredients: [
+        "1½ cups orzo pasta",
+        "2 pints cherry tomatoes, mixed colors",
+        "6 cloves garlic, smashed",
+        "⅓ cup good olive oil, plus more for finishing",
+        "1 tsp crushed red pepper flakes",
+        "3 cups low-sodium vegetable broth",
+        "Zest &amp; juice of 1 lemon",
+        "1 large handful fresh basil, torn",
+        "½ cup grated Parmigiano-Reggiano",
+        "Flaky sea salt &amp; freshly cracked pepper"
+      ],
+      method: [
+        "Heat olive oil in a wide, deep skillet over medium-low. Add garlic and chili flakes and cook gently for 2–3 minutes until fragrant and just golden — don't let it brown.",
+        "Add cherry tomatoes and a generous pinch of salt. Raise heat to medium and cook 8–10 minutes, pressing some of the tomatoes with the back of a spoon to burst them.",
+        "Stir in orzo and toast for 1 minute. Pour in the broth, bring to a simmer, and cook uncovered, stirring often, for 10–12 minutes until orzo is al dente and the liquid is mostly absorbed.",
+        "Off heat, stir in lemon zest, lemon juice, and half the Parmigiano.",
+        "Taste and adjust salt. Divide among bowls, top with torn basil, remaining cheese, a drizzle of olive oil, and flaky salt."
+      ]
+    },
+    2: {
+      title: "Red Wine–Braised Short Ribs",
+      meta: "Sunday Supper · 3 hrs · Serves 6",
+      desc: "This is the dish I make when I want the house to smell like a love letter. The ribs go in the oven and you have three hours to drink the rest of the wine and read a book.",
+      ingredients: [
+        "4 lbs bone-in short ribs",
+        "Kosher salt &amp; cracked black pepper",
+        "2 tbsp olive oil",
+        "4 shallots, halved",
+        "6 cloves garlic, smashed",
+        "2 tbsp tomato paste",
+        "1 bottle (750ml) dry red wine (something you'd drink)",
+        "3 cups beef stock",
+        "4 sprigs rosemary",
+        "6 sprigs thyme",
+        "2 bay leaves"
+      ],
+      method: [
+        "Preheat oven to 325°F. Pat ribs very dry and season aggressively with salt and pepper.",
+        "Heat oil in a large Dutch oven over medium-high. Sear ribs on all sides until deeply browned, about 4 minutes per side. Work in batches. Transfer to a plate.",
+        "Reduce heat to medium. Add shallots and garlic, cook 3 minutes. Stir in tomato paste and cook another 2 minutes until brick-colored.",
+        "Pour in wine, scraping up browned bits. Simmer 5 minutes to cook off alcohol. Add stock and herbs.",
+        "Nestle ribs back in, cover, and braise in the oven for 2½ to 3 hours, until the meat is pulling from the bone.",
+        "Skim fat from surface. Serve over creamy polenta or buttered noodles with a sharp green salad alongside."
+      ]
+    },
+    3: {
+      title: "Rose &amp; Raspberry Panna Cotta",
+      meta: "Dessert · 15 min + chill · Serves 8",
+      desc: "Barely-sweet, barely-set, and just floral enough to feel like a secret. Make it the morning of — it only gets better in the fridge.",
+      ingredients: [
+        "2½ cups heavy cream",
+        "½ cup whole milk",
+        "⅓ cup granulated sugar",
+        "1 packet (2¼ tsp) powdered gelatin",
+        "3 tbsp cold water",
+        "½ tsp rosewater (start with less — it's powerful)",
+        "1 tsp vanilla bean paste",
+        "2 cups fresh raspberries",
+        "2 tbsp honey",
+        "1 tbsp lemon juice"
+      ],
+      method: [
+        "Bloom the gelatin: sprinkle over 3 tbsp cold water and let sit 5 minutes.",
+        "In a saucepan, warm cream, milk, and sugar over medium-low heat, stirring until sugar dissolves. Do not boil.",
+        "Remove from heat. Whisk in bloomed gelatin until fully dissolved. Stir in rosewater and vanilla.",
+        "Strain through a fine-mesh sieve into a pitcher. Divide among 8 small glasses or ramekins. Chill at least 4 hours, ideally overnight.",
+        "For the coulis: simmer raspberries, honey, and lemon juice for 5 minutes until broken down. Strain out seeds. Cool completely.",
+        "Top each panna cotta with a generous spoon of coulis just before serving."
+      ]
+    },
+    4: {
+      title: "Green Goddess Grain Bowl",
+      meta: "Lunch · 25 min · Serves 2",
+      desc: "The grain bowl that ruined all other grain bowls. The dressing is the whole game — make a double batch and put it on eggs, fish, roasted potatoes, your fingers.",
+      ingredients: [
+        "1 cup farro or pearl barley",
+        "1 bunch broccolini, trimmed",
+        "1 ripe avocado, sliced",
+        "½ cup chickpeas, drained",
+        "2 tbsp olive oil",
+        "Flaky salt",
+        "For the dressing:",
+        "⅓ cup tahini",
+        "1 cup mixed herbs (basil, parsley, chives, dill)",
+        "1 small garlic clove",
+        "Juice of 1 lemon",
+        "2 tbsp olive oil",
+        "3–5 tbsp cold water",
+        "Salt to taste"
+      ],
+      method: [
+        "Cook farro in salted boiling water 20–25 minutes until tender but still chewy. Drain.",
+        "Meanwhile, toss broccolini with olive oil and salt. Char in a hot cast iron pan, 2 minutes per side, until blistered and bright green.",
+        "Blend all dressing ingredients until silky, adding water slowly until it's the thickness of heavy cream.",
+        "Build the bowls: farro on the bottom, broccolini, avocado, and chickpeas on top. Drown in dressing. Finish with flaky salt."
+      ]
+    },
+    5: {
+      title: "Saffron &amp; Leek Frittata",
+      meta: "Brunch · 35 min · Serves 4",
+      desc: "A slow-cooked frittata is a vastly different animal from a rushed one. Low heat, patience, and proper Gruyère — that's the whole trick.",
+      ingredients: [
+        "8 large eggs",
+        "3 tbsp whole milk or cream",
+        "Generous pinch of saffron threads",
+        "3 tbsp unsalted butter",
+        "3 leeks (white &amp; pale green only), thinly sliced",
+        "1 cup grated aged Gruyère",
+        "2 tbsp chopped chives",
+        "Salt &amp; white pepper"
+      ],
+      method: [
+        "Steep saffron in milk for 10 minutes — it should turn golden.",
+        "Melt butter in a 10-inch ovenproof nonstick skillet over low heat. Add leeks and a pinch of salt. Cook, stirring occasionally, for 15 minutes until completely soft and sweet. Do not brown.",
+        "Preheat broiler to high. Whisk eggs with the saffron milk, a good pinch of salt, and white pepper.",
+        "Pour eggs over leeks. Scatter Gruyère evenly. Cook on low, undisturbed, for 8 minutes until edges are set but center still jiggles.",
+        "Slide under broiler for 1–2 minutes until puffed and golden. Scatter with chives and serve in wedges, warm or at room temperature."
+      ]
+    },
+    6: {
+      title: "Miso-Butter Roast Chicken",
+      meta: "Dinner · 1 hr 15 min · Serves 4",
+      desc: "The chicken that people ask for the recipe to. The miso lacquers the skin into something between salted caramel and shatterable glass — and the pan juices are worth saving in a jar.",
+      ingredients: [
+        "1 whole chicken (about 4 lbs)",
+        "4 tbsp unsalted butter, softened",
+        "2 tbsp white miso paste",
+        "2 tsp honey",
+        "1 tsp finely grated ginger",
+        "1 lemon, halved",
+        "6 sprigs thyme",
+        "1 head garlic, halved crosswise",
+        "2 tbsp olive oil",
+        "Flaky salt"
+      ],
+      method: [
+        "Take chicken out of fridge 1 hour before cooking. Pat very dry, inside and out — this is non-negotiable for crispy skin.",
+        "Preheat oven to 425°F.",
+        "Mash butter with miso, honey, and ginger into a smooth paste.",
+        "Gently loosen skin over the breasts with your fingers. Slide about half the miso butter under the skin and massage to distribute. Rub remaining butter all over the outside.",
+        "Stuff cavity with lemon halves, thyme, and garlic. Tie legs with twine if you're feeling tidy.",
+        "Place on a rack in a roasting pan. Drizzle with olive oil. Roast 55–65 minutes, until thigh registers 165°F and skin is mahogany.",
+        "Rest 15 minutes before carving. Squeeze the roasted lemon over the top. Pour the pan drippings into a small pitcher and pass at the table."
+      ]
+    }
+  };
+
+  function openRecipe(id) {
+    const r = recipes[id];
+    if (!r) return;
+    const content = `
+      <h2>${r.title}</h2>
+      <div class="recipe-meta" style="letter-spacing:0.08em;text-transform:uppercase;font-size:0.78rem;color:var(--ink-soft);display:flex;gap:1rem;">${r.meta}</div>
+      <p class="desc">${r.desc}</p>
+      <h4>Ingredients</h4>
+      <ul>${r.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
+      <h4>Method</h4>
+      <ol>${r.method.map(s => `<li>${s}</li>`).join('')}</ol>
+    `;
+    document.getElementById('modalContent').innerHTML = content;
+    document.getElementById('recipeModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('recipeModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.recipe-card').forEach(card => {
+    card.addEventListener('click', () => openRecipe(card.dataset.recipe));
+  });
+
+  document.getElementById('recipeModal').addEventListener('click', (e) => {
+    if (e.target.id === 'recipeModal') closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ---------- CALENDAR ----------
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DAYS_FULL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  // Time slots: weekdays vs weekends
+  const WEEKDAY_SLOTS = ['9:00 AM','10:00 AM','11:00 AM','1:00 PM','2:00 PM','3:00 PM','5:00 PM','6:00 PM','7:00 PM'];
+  const WEEKEND_SLOTS = ['10:00 AM','11:00 AM','1:00 PM','2:00 PM','3:00 PM','4:00 PM'];
+
+  // Pseudo-booked slots (so the calendar feels real — in production these come from a backend)
+  const BOOKED = new Set([
+    // format: 'YYYY-MM-DD|H:MM AM/PM'
+  ]);
+
+  let today = new Date();
+  today.setHours(0, 0, 0, 0);
+  let viewYear = today.getFullYear();
+  let viewMonth = today.getMonth();
+  let selectedDate = null;  // Date object
+  let selectedTime = null;  // string
+
+  // Seed a handful of "booked" slots within the next 2 weeks for realism
+  (function seedBooked() {
+    const seed = (offsetDays, time) => {
+      const d = new Date(today);
+      d.setDate(d.getDate() + offsetDays);
+      BOOKED.add(`${fmtKey(d)}|${time}`);
+    };
+    seed(1, '10:00 AM'); seed(1, '2:00 PM');
+    seed(2, '9:00 AM'); seed(2, '6:00 PM');
+    seed(3, '1:00 PM');
+    seed(5, '11:00 AM'); seed(5, '3:00 PM');
+    seed(8, '9:00 AM');
+    seed(9, '5:00 PM'); seed(9, '7:00 PM');
+    seed(12, '2:00 PM');
+  })();
+
+  function fmtKey(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}-${m}-${d}`;
+  }
+
+  function sameDay(a, b) {
+    return a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+  }
+
+  function renderCalendar() {
+    document.getElementById('calMonth').textContent = `${MONTHS[viewMonth]} ${viewYear}`;
+
+    const firstDay = new Date(viewYear, viewMonth, 1);
+    const lastDay = new Date(viewYear, viewMonth + 1, 0);
+    const startPadding = firstDay.getDay();
+    const daysInMonth = lastDay.getDate();
+
+    // Max viewable: 3 months from today
+    const maxDate = new Date(today);
+    maxDate.setMonth(maxDate.getMonth() + 3);
+
+    // Disable prev button if viewing current month
+    document.getElementById('calPrev').disabled =
+      (viewYear === today.getFullYear() && viewMonth === today.getMonth());
+    // Disable next button if viewing max month
+    document.getElementById('calNext').disabled =
+      (viewYear === maxDate.getFullYear() && viewMonth === maxDate.getMonth());
+
+    const daysHTML = [];
+    // Leading empty cells from previous month
+    for (let i = 0; i < startPadding; i++) {
+      daysHTML.push(`<span class="cal-day other-month"></span>`);
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(viewYear, viewMonth, d);
+      const isPast = date < today;
+      const isTooFar = date > maxDate;
+      const isToday = sameDay(date, new Date());
+      const isSelected = sameDay(date, selectedDate);
+      const classes = ['cal-day'];
+      if (isPast || isTooFar) classes.push('disabled');
+      if (isToday) classes.push('today');
+      if (isSelected) classes.push('selected');
+
+      const attr = (isPast || isTooFar) ? '' : `onclick="selectDate(${viewYear}, ${viewMonth}, ${d})"`;
+      daysHTML.push(`<button type="button" class="${classes.join(' ')}" ${attr}>${d}</button>`);
+    }
+
+    document.getElementById('calDays').innerHTML = daysHTML.join('');
+  }
+
+  function selectDate(y, m, d) {
+    selectedDate = new Date(y, m, d);
+    selectedTime = null;
+    renderCalendar();
+    renderTimeSlots();
+    updateSummary();
+  }
+
+  function renderTimeSlots() {
+    const label = document.getElementById('slotsLabel');
+    const container = document.getElementById('timeSlots');
+
+    if (!selectedDate) {
+      label.textContent = 'Select a date to see available times';
+      container.innerHTML = '';
+      return;
+    }
+
+    const dayName = DAYS_FULL[selectedDate.getDay()];
+    const monthName = MONTHS[selectedDate.getMonth()];
+    const dayNum = selectedDate.getDate();
+    label.innerHTML = `Available times · <em>${dayName}, ${monthName} ${dayNum}</em>`;
+
+    const isWeekend = selectedDate.getDay() === 0 || selectedDate.getDay() === 6;
+    const slots = isWeekend ? WEEKEND_SLOTS : WEEKDAY_SLOTS;
+    const dateKey = fmtKey(selectedDate);
+
+    const availableSlots = slots.filter(s => !BOOKED.has(`${dateKey}|${s}`));
+
+    if (availableSlots.length === 0) {
+      container.innerHTML = `<div class="no-slots">All booked that day — try another date.</div>`;
+      return;
+    }
+
+    container.innerHTML = slots.map(s => {
+      const booked = BOOKED.has(`${dateKey}|${s}`);
+      const selected = s === selectedTime;
+      const cls = ['time-slot'];
+      if (selected) cls.push('selected');
+      const dis = booked ? 'disabled' : '';
+      const onClick = booked ? '' : `onclick="selectTime('${s}')"`;
+      return `<button type="button" class="${cls.join(' ')}" ${dis} ${onClick}>${s}</button>`;
+    }).join('');
+  }
+
+  function selectTime(time) {
+    selectedTime = time;
+    renderTimeSlots();
+    updateSummary();
+  }
+
+  function updateSummary() {
+    const summary = document.getElementById('selectedSummary');
+    const hidden = document.getElementById('selectedDateTime');
+    if (selectedDate && selectedTime) {
+      const dayName = DAYS_FULL[selectedDate.getDay()];
+      const monthName = MONTHS[selectedDate.getMonth()];
+      const dayNum = selectedDate.getDate();
+      summary.innerHTML = `You're booking <em>${dayName}, ${monthName} ${dayNum} at ${selectedTime}</em>`;
+      summary.classList.add('visible');
+      hidden.value = `${fmtKey(selectedDate)} ${selectedTime}`;
+    } else {
+      summary.classList.remove('visible');
+      hidden.value = '';
+    }
+  }
+
+  function changeMonth(delta) {
+    viewMonth += delta;
+    if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+    if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+    renderCalendar();
+  }
+
+  document.getElementById('calPrev').addEventListener('click', () => changeMonth(-1));
+  document.getElementById('calNext').addEventListener('click', () => changeMonth(1));
+
+  renderCalendar();
+  renderTimeSlots();
+
+  function submitForm(e) {
+    e.preventDefault();
+    if (!selectedDate || !selectedTime) {
+      const label = document.getElementById('slotsLabel');
+      label.style.color = 'var(--terracotta)';
+      label.textContent = '↑ Please pick a date and time above';
+      document.querySelector('.calendar').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    const dayName = DAYS_FULL[selectedDate.getDay()];
+    const monthName = MONTHS[selectedDate.getMonth()];
+    const dayNum = selectedDate.getDate();
+    document.getElementById('successDateTime').textContent = `${dayName}, ${monthName} ${dayNum} · ${selectedTime}`;
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('active');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
